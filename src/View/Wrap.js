@@ -49,15 +49,15 @@ const Wrap = props => {
 
 
     if (data !== undefined && data3.result !== undefined) {
-        console.log(data);
+        console.log(data3.result);
 
 
         if (data3.result.is_admin !== 1) {
 
-            filterData = data.filter(r => r.userId !== 1 && r.is_delete !== 1 && r.is_admin !== 1)
+            filterData = data.filter(r => r.userId !== data3.result[0].userId && r.is_delete !== 1 && r.is_admin !== 1)
         } else {
 
-            filterData = data.filter(r => r.userId !== 1 && r.is_delete !== 1)
+            filterData = data.filter(r => r.userId !== data3.result[0].userId && r.is_delete !== 1)
         }
 
 
