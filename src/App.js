@@ -1,25 +1,23 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import Wrap from './View/Wrap'
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
+import { Provider } from 'react-redux';
+import store from './Redux/store';
+import Login from "./Pages/Login";
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Provider store={store}>
+      <Router>
+        <Route exact path='/' render={props => <Wrap {...props} title='Dashboard' />} />
+        <Route path='/setting/:id' render={props => <Wrap {...props} title='Setting' />} />
+        <Route path='/addUser' render={props => <Wrap {...props} title='Add User' />} />
+        <Route path='/login' render={props => <Login {...props} title='Add User' />} />
+      </Router>
+    </Provider>
   );
 }
 
