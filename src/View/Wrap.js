@@ -41,7 +41,8 @@ const Wrap = props => {
     if (data3.error != null) {
         localStorage.remove("token");
         localStorage.remove("id");
-        props.history.push('/login')
+        // props.history.push('/login')
+        window.location = '/login'
 
     }
 
